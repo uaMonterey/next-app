@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import {useRouter} from "next/router";
 import styles from '../styles/Navbar.module.scss'
 import Home from "../pages";
@@ -14,7 +15,7 @@ const Navbar = () => {
     return (
         <nav className={styles.nav}>
             <div className={styles.logo}>
-                Monterey Corporation
+                <Image src='/vercel.svg' width={100} height={60} alt='Vercel'/>
             </div>
             <div className={styles.links}>
                 {navigation.map(({id, title, path}) => (
