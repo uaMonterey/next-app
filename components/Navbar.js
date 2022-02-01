@@ -2,7 +2,6 @@ import Link from "next/link";
 import Image from "next/image";
 import {useRouter} from "next/router";
 import styles from '../styles/Navbar.module.scss'
-import Home from "../pages";
 
 const navigation = [
     {id: 1, title: 'Home', path: '/'},
@@ -14,7 +13,7 @@ const Navbar = () => {
     const {pathname} = useRouter()
     return (
         <nav className={styles.nav}>
-            <div className={styles.logo}>
+            <div>
                 <Image src='/vercel.svg' width={100} height={60} alt='Vercel'/>
             </div>
             <div className={styles.links}>

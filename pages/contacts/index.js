@@ -1,8 +1,9 @@
 import Head from "next/head";
+import Link from "next/link";
 import Heading from "../../components/Heading";
 
 export const getStaticProps = async () => {
-    const response = await fetch('https://618641e8cd8530001765aa25.mockapi.io/api/v1/users')
+    const response = await fetch('https://jsonplaceholder.typicode.com/users')
     const data = await response.json()
 
     if (!data) {
@@ -25,9 +26,9 @@ const Contacts = ({contacts}) => {
             </Head>
             <Heading text='Contacts list:'/>
             <ul>
-                {contacts && contacts.map(({id, name, email}) => (
+                {contacts && contacts.map(({id, name}) => (
                     <li key={id}>
-                        <strong>{name}</strong> ({email})
+                        <Link href={`/contacts/${id}`}>{name}</Link>
                     </li>
                 ))}
             </ul>
