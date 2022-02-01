@@ -1,8 +1,7 @@
 import Heading from "./Heading";
 
 const PostInfo = ({post}) => {
-
-    console.log(post)
+    
     const {title, body} = post || {};
 
     if (!post) {
