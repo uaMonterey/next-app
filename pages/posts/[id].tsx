@@ -1,5 +1,11 @@
+import {FC} from "react";
 import Head from "next/head";
 import PostInfo from "../../components/PostInfo";
+import {TPost} from "../../types";
+
+type TPostProps = {
+    post: TPost
+}
 
 // SSG - Static Site Generation
 export const getStaticPaths = async () => {
@@ -33,7 +39,7 @@ export const getStaticProps = async (context) => {
     }
 }
 
-const Post = ({post}) => (
+const Post: FC<TPostProps> = ({post}) => (
     <>
         <Head>
             <title>Contact page</title>

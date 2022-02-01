@@ -1,8 +1,15 @@
+import {FC} from 'react'
+import {GetServerSideProps} from "next";
 import Head from "next/head";
 import ContactInfo from "../../components/ContactInfo";
+import {TContact} from "../../types";
+
+type TContactsProps = {
+    contact: TContact
+}
 
 // SSR - Server Side Rendering
-export const getServerSideProps = async (context) => {
+export const getServerSideProps: GetServerSideProps = async (context) => {
     const {id} = context.params
     const response = await fetch(`https://jsonplaceholder.typicode.com/users/${id}`)
     const data = await response.json()
@@ -18,7 +25,7 @@ export const getServerSideProps = async (context) => {
     }
 }
 
-const Id = ({contact}) => {
+const Contact: FC<TContactsProps> = ({contact}) => {
 
     return (
 
@@ -31,4 +38,4 @@ const Id = ({contact}) => {
     )
 }
 
-export default Id
+export default Contact

@@ -1,12 +1,17 @@
+import {FC} from 'react'
 import Heading from "./Heading";
+import {TContact} from "../types";
 
-const ContactInfo = ({contact}) => {
-    
+type TContactInfoProps = {
+    contact: TContact,
+}
+const ContactInfo: FC<TContactInfoProps> = ({contact}) => {
+
     const {name, email, address} = contact || {}
     const {street, suite, city, zipcode} = address || {}
 
     if (!contact) {
-        return <Heading tag='h3' text='Epmty contact'/>
+        return <Heading tag='h3' text='Empty contact'/>
     }
 
     return (

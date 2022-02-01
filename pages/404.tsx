@@ -1,9 +1,9 @@
-import {useEffect} from "react";
+import {FC, useEffect} from "react";
 import {useRouter} from "next/router";
 import Heading from "../components/Heading";
 import styles from '/styles/404.module.scss'
 
-const Error = () => {
+const Error: FC = () => {
     const router = useRouter()
 
     useEffect(() => {

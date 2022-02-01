@@ -1,7 +1,12 @@
+import {FC} from "react";
 import Head from "next/head";
 import Link from "next/link";
 import Heading from "../../components/Heading";
+import {TPost} from "../../types";
 
+type TPostsProps = {
+    posts: TPost
+}
 export const getStaticProps = async () => {
     const response = await fetch('https://jsonplaceholder.typicode.com/posts')
     const data = await response.json()
@@ -17,7 +22,7 @@ export const getStaticProps = async () => {
     }
 }
 
-const Posts = ({posts}) => (
+const Posts: FC<TPostsProps> = ({posts}) => (
     <>
         <Head>
             <title>Posts</title>

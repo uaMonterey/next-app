@@ -1,7 +1,13 @@
+import {FC} from "react";
 import Heading from "./Heading";
+import {TPost} from "../types";
 
-const PostInfo = ({post}) => {
-    
+type TPostInfoProps = {
+    post: TPost
+}
+
+const PostInfo: FC<TPostInfoProps> = ({post}) => {
+
     const {title, body} = post || {};
 
     if (!post) {
